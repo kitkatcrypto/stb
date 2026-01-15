@@ -384,7 +384,7 @@ export default function CreateTokenPage() {
 
                 <div>
                   <div className="text-xl font-semibold">Solana Token Creator</div>
-                  <div className="text-xs text-gray-400">Create Solana SPL Tokens in One-Click</div>
+                  <div className="text-xs text-gray-400">Create a Solana Meme Token in One-Click</div>
                 </div>
               </div>
             </div>
