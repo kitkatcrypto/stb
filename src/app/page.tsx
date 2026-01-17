@@ -532,12 +532,17 @@ export default function Page() {
                         <button
                           onClick={() => burnToken(t)}
                           className={`
-                          w-full py-2 rounded text-white font-semibold
-                          ${status === "burning" ? "bg-[#3a2f56]" : "bg-[#8b5cf6] hover:bg-red-400"}
-                        `}
+                            w-full py-2 rounded text-white font-semibold
+                            flex items-center justify-center gap-2
+                            ${status === "burning" ? "bg-[#3a2f56]" : "bg-[#8b5cf6] hover:bg-red-400"}
+                          `}
                           disabled={disabled}
                         >
-                          {status === "burning" ? "Burning..." : "Burn"}
+                          {status === "burning" && (
+                            <Loader2 size={16} className="animate-spin text-white" />
+                          )}
+
+                          <span>{status === "burning" ? "Burning..." : "Burn"}</span>
                         </button>
                       </div>
                     );
