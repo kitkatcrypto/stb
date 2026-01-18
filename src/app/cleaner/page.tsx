@@ -684,24 +684,31 @@ export default function CleanerPage() {
                 onClick={burnSelected}
                 disabled={txStatus === "burning" || selected.length === 0}
                 className={`
-    px-5 py-2 rounded font-semibold text-white text-s
-    transition
-    ${
-      txStatus === "burning"
-        ? "bg-[#3a2f56] cursor-not-allowed"
-        : selected.length === 0
-          ? "bg-[#2a2a2c] opacity-60 cursor-not-allowed"
-          : "bg-[#8b5cf6] hover:bg-red-400"
-    }
-  `}
+                  px-5 py-2 rounded font-semibold text-white text-s
+                  transition
+                  flex items-center justify-center gap-2
+                  ${
+                    txStatus === "burning"
+                      ? "bg-[#3a2f56] cursor-not-allowed"
+                      : selected.length === 0
+                        ? "bg-[#2a2a2c] opacity-60 cursor-not-allowed"
+                        : "bg-[#8b5cf6] hover:bg-red-400"
+                  }
+                `}
               >
-                {txStatus === "burning"
-                  ? "Burning..."
-                  : selected.length === 0
-                    ? "Burn Tokens"
-                    : selected.length === 1
-                      ? "Burn 1 Token"
-                      : `Burn ${selected.length} Tokens`}
+                {txStatus === "burning" && (
+                  <Loader2 size={16} className="animate-spin text-white" />
+                )}
+
+                <span>
+                  {txStatus === "burning"
+                    ? "Burning..."
+                    : selected.length === 0
+                      ? "Burn Tokens"
+                      : selected.length === 1
+                        ? "Burn 1 Token"
+                        : `Burn ${selected.length} Tokens`}
+                </span>
               </button>
             </div>
           </div>
